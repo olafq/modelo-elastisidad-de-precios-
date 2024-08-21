@@ -1,0 +1,5 @@
+SELECT BI_FACT_VENTAS.*,q.DESC_CLI_PROVINCIA, r.DESC_CLI_LOCALIDAD
+FROM BI_FACT_VENTAS
+JOIN lcomer.lk_cli_sucursal a ON a.id_cli_cliente*10 || a.id_cli_sucursal = bi_fact_ventas.cli_suc
+LEFT JOIN lcomer.lk_cli_provincia q on a.id_cli_provincia = q.id_cli_provincia
+LEFT JOIN lcomer.lk_cli_localidad r on a.id_cli_localidad = r.id_cli_localidad;
